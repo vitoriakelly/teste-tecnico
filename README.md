@@ -39,3 +39,15 @@ docker-compose up -d --build
 
 3 - Acessar
 http://localhost:5173/
+
+
+![image](https://github.com/user-attachments/assets/d8ed8e53-843f-440e-82b8-909e4b21002b)
+
+![image](https://github.com/user-attachments/assets/fce8acec-c426-4c30-9817-a2e0a7e3c6b8)
+
+![image](https://github.com/user-attachments/assets/182d6e03-62ee-412d-ba3c-9d191cee1cea)
+
+![image](https://github.com/user-attachments/assets/41ff3694-9c8b-4e64-b8fa-b934c1c5aff0)
+
+
+
