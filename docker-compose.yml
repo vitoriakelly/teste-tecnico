@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: teste123456
+      POSTGRES_DB: users
+    ports:
+      - "5432:5432"
+    networks:
+      - backend_network
+
+  backend:
+    image: demo-backend
+    build:
+      context: ./demo
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/users
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: teste123456
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+    depends_on:
+      - db
+    networks:
+      - backend_network
+
+  frontend:
+    build:
+      context: ./front-teste-tecnico
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - frontend_network
+
+networks:
+  backend_network:
+    driver: bridge
+  frontend_network:
+    driver: bridge
